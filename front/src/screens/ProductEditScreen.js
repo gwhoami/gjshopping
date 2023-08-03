@@ -73,7 +73,7 @@ export default function ProductEditScreen()
             try
             {
                 dispatch({ type: 'FETCH_REQUEST' });
-                const { data } = await axios.get(`/api/products/${productId}`);
+                const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/products/${productId}`);
                 setName(data.name);
                 setSlug(data.slug);
                 setPrice(data.price);
@@ -101,7 +101,7 @@ export default function ProductEditScreen()
         {
             dispatch({ type: 'UPDATE_REQUEST' });
             await axios.put(
-                `/api/products/${productId}`,
+                `${process.env.REACT_APP_BASE_URL}/api/products/${productId}`,
                 {
                     _id: productId,
                     name,
@@ -138,7 +138,7 @@ export default function ProductEditScreen()
         try
         {
             dispatch({ type: 'UPLOAD_REQUEST' });
-            const { data } = await axios.post('/api/upload', bodyFormData, {
+            const { data } = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/upload`, bodyFormData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     authorization: `Bearer ${userInfo.token}`,

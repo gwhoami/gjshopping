@@ -42,7 +42,7 @@ export default function ProfileScreen()
         try
         {
             const { data } = await axios.put(
-                '/api/users/profile',
+                `${process.env.REACT_APP_BASE_URL}/api/users/profile`,
                 {
                     name,
                     email,

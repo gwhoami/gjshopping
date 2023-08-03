@@ -23,7 +23,7 @@ export default function SigninScreen() {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await Axios.post('/api/users/signin', {
+      const { data } = await Axios.post(`${process.env.REACT_APP_BASE_URL}/api/users/signin`, {
         email,
         password,
       });
@@ -36,6 +36,7 @@ export default function SigninScreen() {
   };
 
   useEffect(() => {
+    console.log(Axios);
     if (userInfo) {
       navigate(redirect);
     }

@@ -57,7 +57,7 @@ function App()
     {
       try
       {
-        const { data } = await axios.get(`/api/products/categories`);
+        const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/products/categories`);
         setCategories(data);
       } catch (err)
       {

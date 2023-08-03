@@ -84,7 +84,7 @@ export default function ProductListScreen()
         {
             try
             {
-                const { data } = await axios.get(`/api/products/admin?page=${page} `, {
+                const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/products/admin?page=${page} `, {
                     headers: { Authorization: `Bearer ${userInfo.token}` },
                 });
 
@@ -108,7 +108,7 @@ export default function ProductListScreen()
             {
                 dispatch({ type: 'CREATE_REQUEST' });
                 const { data } = await axios.post(
-                    '/api/products',
+                    `${process.env.REACT_APP_BASE_URL}/api/products`,
                     {},
                     {
                         headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -132,7 +132,7 @@ export default function ProductListScreen()
         {
             try
             {
-                await axios.delete(`/api/products/${product._id}`, {
+                await axios.delete(`${process.env.REACT_APP_BASE_URL}/api/products/${product._id}`, {
                     headers: { Authorization: `Bearer ${userInfo.token}` },
                 });
                 toast.success('product deleted successfully');
