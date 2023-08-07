@@ -9,9 +9,9 @@ import userRouter from './routes/userRoutes.js';
 import orderRouter from './routes/orderRoutes.js';
 import uploadRouter from './routes/uploadRoutes.js';
 
-//dotenv.config();
+dotenv.config();
 //const __dirname = path.resolve();
-dotenv.config({path: 'D:\\applications\\shopping\\gjshopping\\backend\\.env'})
+//dotenv.config({path: 'D:\\applications\\shopping\\gjshopping\\backend\\.env'})
 
 mongoose
   .connect(process.env.MONGODB_URI)

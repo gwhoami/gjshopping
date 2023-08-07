@@ -41,7 +41,7 @@ export default function OrderHistoryScreen()
             try
             {
                 const { data } = await axios.get(
-                    `/api/orders/mine`,
+                    `${process.env.REACT_APP_BASE_URL}/api/orders/mine`,
 
                     { headers: { Authorization: `Bearer ${userInfo.token}` } }
                 );
